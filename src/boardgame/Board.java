@@ -1,17 +1,18 @@
 package boardgame;
 
 public class Board {
-	
+
 	private int rows;
 	private int columns;
 	private Piece[][] pieces;
-	
+
 	public Board(int rows, int columns) {
 		this.rows = rows;
 		this.columns = columns;
 		pieces = new Piece[rows][columns];
 	}
-	///////Modificadores e acessores///////
+
+	/////// Modificadores e acessores///////
 	public int getRows() {
 		return rows;
 	}
@@ -27,16 +28,37 @@ public class Board {
 	public void setColumns(int columns) {
 		this.columns = columns;
 	}
-	
-         	//////Metodos de peças//////
-	public Piece piece (int row, int column) {
+
+	////// Metodos de peças//////
+	public Piece piece(int row, int column) {
 		return pieces[row][column];
-		
+
 	}
+// ======================================================================
+	// ------ Método para inserir peças no tabuleiro ------//       
+	public void placePiece(Piece piece, Position position) {		 
+		pieces[position.getRow()][position.getColumn()] = piece;
+		piece.position = position;
+	}
+
+	// ------ Método para remover peça do tabuleiro ------//
+	public Piece removePiece(Position position) {
+		return null;
+	}
+
+	// ------ Método para validar posição ------//
+	public boolean positionExists(Position position) {
+		return false;
+	}
+	
+	// ------ Método para validar peça ------//
+	public boolean thereIsAPiece(Position position) {
+		return false;
+	}
+	//===================================================================
 	// sobrecarga//
 	public Piece piece(Position position) {
 		return pieces[position.getRow()][position.getColumn()];
 	}
 
-	
 }
