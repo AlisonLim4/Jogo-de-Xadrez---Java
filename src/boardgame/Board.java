@@ -50,8 +50,16 @@ public class Board {
 		if(!positionExists(position)) {
 			throw new BoardException("Posição não existe no tabuleiro");
 		}
-		return null;
-	}
+		if(piece(position) == null) {
+			return null;
+		}
+		Piece aux = piece(position);
+		aux.position = null;
+		pieces[position.getRow()][position.getColumn()] = null;
+		return aux;
+		}
+		
+	
 
 	//  -------- Método auxiliar para validar posição --------//
 	private boolean positionExists(int row, int column) {
